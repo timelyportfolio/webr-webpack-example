@@ -12,6 +12,7 @@ import { WebR } from '@r-wasm/webr';
 const webR = new WebR({
     baseUrl: './',
     serviceWorkerUrl: './',
+    repoUrl: 'https://repo.r-wasm.org'
 });
 
 (async () => {
@@ -22,6 +23,13 @@ const webR = new WebR({
     const values = await val.toArray();
     document.getElementById('random').innerText = values.join(', ');
     await webR.installPackages('svglite');
+    const svg = await webR.evalRVoid(`
+      library(svglite)
+      s <- svglite::svgstring(standalone = FALSE)
+      plot(1:10)
+      s()
+    `)
+    console.log(svg);
   } finally {
     webR.destroy(val);
   }
