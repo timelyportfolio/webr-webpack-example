@@ -30,6 +30,7 @@ const webR = new WebR({
       s()
     `)
     console.log(svg);
+    document.getElementById('#plotcontainer').innerHTML = svg;
   } finally {
     webR.destroy(val);
   }
