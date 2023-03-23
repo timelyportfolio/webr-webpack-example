@@ -22,7 +22,7 @@ const webR = new WebR({
   try {
     const values = await val.toArray();
     document.getElementById('random').innerText = values.join(', ');
-    await webR.installPackages('svglite');
+    await webR.installPackage(['svglite']);
     const svg = await webR.evalRString(`
       library(svglite)
       s <- svglite::svgstring(standalone = FALSE)
