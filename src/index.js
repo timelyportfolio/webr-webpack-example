@@ -22,15 +22,19 @@ const webR = new WebR({
   try {
     const values = await val.toArray();
     document.getElementById('random').innerText = values.join(', ');
-    await webR.installPackages(['svglite']);
+    await webR.installPackages(['svglite','xtable']);
     const svg = await webR.evalRString(`
       library(svglite)
       s <- svglite::svgstring(standalone = FALSE)
       plot(1:10)
       s()
     `)
-    console.log(svg);
     document.getElementById('plotcontainer').innerHTML = svg;
+    const tbl = await webR.evalRString(`
+      print(xtable::xtable(mtcars, auto = TRUE), type="html")
+    `)
+    document.getElementById('tablecontainer').innerHTML = tbl;
+
   } finally {
     webR.destroy(val);
   }
