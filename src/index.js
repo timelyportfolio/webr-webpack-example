@@ -12,7 +12,7 @@ import { WebR } from '@r-wasm/webr';
 const webR = new WebR({
     baseUrl: './',
     serviceWorkerUrl: './',
-    repoUrl: 'https://repo.r-wasm.org'
+    repoURL: 'https://repo.r-wasm.org/'
 });
 
 (async () => {
