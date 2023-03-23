@@ -21,6 +21,7 @@ const webR = new WebR({
   try {
     const values = await val.toArray();
     document.getElementById('random').innerText = values.join(', ');
+    await webR.installPackages('svglite');
   } finally {
     webR.destroy(val);
   }
