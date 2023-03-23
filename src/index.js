@@ -31,7 +31,7 @@ const webR = new WebR({
     `)
     document.getElementById('plotcontainer').innerHTML = svg;
     const tbl = await webR.evalRString(`
-      print(xtable::xtable(mtcars, auto = TRUE), type="html")
+      print(xtable::xtable(mtcars, auto = TRUE), type="html", method="compact")
     `)
     document.getElementById('tablecontainer').innerHTML = tbl;
 
