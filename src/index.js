@@ -30,6 +30,9 @@ const webR = new WebR({
       s()
     `)
     document.getElementById('plotcontainer').innerHTML = svg;
+    // resize the svg the old manual way
+    document.querySelector('#plotcontainer svg').attributes.width = '100%';
+    document.querySelector('#plotcontainer svg').attributes.height = '100%';
     const tbl = await webR.evalRString(`
       print(
         xtable::xtable(mtcars, auto = TRUE),
