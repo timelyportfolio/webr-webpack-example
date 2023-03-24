@@ -36,7 +36,7 @@ const webR = new WebR({
         type="html",
         method="compact",
         print_results=FALSE,
-        html.table.attributes="border=none"
+        html.table.attributes="border=0"
       )
     `)
     document.getElementById('tablecontainer').innerHTML = tbl;
