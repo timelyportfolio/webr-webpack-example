@@ -35,7 +35,7 @@ const webR = new WebR({
         xtable::xtable(mtcars, auto = TRUE),
         type="html",
         method="compact",
-        print_results=FALSE,
+        print.results=FALSE,
         html.table.attributes="border=0"
       )
     `)
