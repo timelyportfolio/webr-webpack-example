@@ -84,11 +84,8 @@ const webR = new WebR({
       
           ver <- as.character(getRversion())
           ver <- gsub('\\\\.[^.]+$', '', ver)
-          # bin_suffix <- sprintf("bin/emscripten/contrib/%s", ver)
-          bin_suffix <- sprintf(
-            "bin/macosx/contrib/%s",
-            ver
-          )
+
+          bin_suffix <- sprintf("bin/macosx/contrib/%s",ver)
           # https://karoliskoncevicius.r-universe.dev/bin/macosx/contrib/4.1/basetheme_0.1.2.tgz
           repo = sprintf("https://%s.r-universe.dev", author)
           # repo <- info[pkg, "Repository"]
