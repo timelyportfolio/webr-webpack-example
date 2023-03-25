@@ -54,74 +54,37 @@ const webR = new WebR({
           lib <- .libPaths()[[1]]
         }
         # only works for r-universe
-        # if (is.null(repos)) {
-        #   repos <- getOption('webr_pkg_repos')
-        # }
-        # #info <- utils::available.packages(repos = repos, type = 'source')
-        # # try to get info from r-universe api
-        # info <- sprintf('https://%s.r-universe.dev/%s/json', author, package)
-        # do not handle dependencies for now
-        # deps <- unlist(tools::package_dependencies(packages, info), use.names = FALSE)
-        # deps <- unique(deps)
-        # 
-        # for (dep in deps) {
-        #   if (length(find.package(dep, quiet = TRUE))) {
-        #     next
-        #   }
-        #   install(dep, repos, lib)
-        # }
       
         for (pkg in packages) {
-          # # do not check for now to simplify the operation
-          # if (length(find.package(pkg, quiet = TRUE))) {
-          #   next
-          # }
-          # 
-          # if (!pkg %in% info) {
-          #   warning(cat('Requested package', pkg, 'not found in webR binary repo.\n'))
-          #   next
-          # }
-      
-          # give up for now and hard code version
-          ver <- '4.1'
-          # ver <- as.character(getRversion())
-          # use strsplit instead of gsub since backslash and quotes get messed up in template strings by Webpack
-          # ver_split <- strsplit(ver,'.',fixed=TRUE)
-          # ver <- sprintf('%s.%s',ver_split[[1]][1], ver_split[[1]][2])
+          ver <- "4.1"
+          bin_suffix <- sprintf("bin/macosx/contrib/%s",ver)
           
-          bin_suffix <- sprintf('bin/macosx/contrib/%s',ver)
+          repo = sprintf("https://%s.r-universe.dev", author)
           
-          # https://karoliskoncevicius.r-universe.dev/bin/macosx/contrib/4.1/basetheme_0.1.2.tgz
-          repo = sprintf('https://%s.r-universe.dev', author)
-          
-          # repo <- info[pkg, 'Repository']
-          # repo <- sub('src/contrib', bin_suffix, repo, fixed = TRUE)
-          # repo <- sub('file:', '', repo, fixed = TRUE)
-      
-          #pkg_ver <- info[pkg, 'Version']
-          path <- file.path(repo, bin_suffix, paste0(pkg, '_', pkg_ver, '.tgz'))
+          path <- file.path(repo, bin_suffix, paste0(pkg, "_", pkg_ver, ".tgz"))
       
           tmp <- tempfile()
-          message(paste('Downloading webR package:', pkg))
+          message(paste("Downloading webR package:", pkg))
           utils::download.file(path, tmp, quiet = TRUE)
       
           utils::untar(
             tmp,
             exdir = lib,
-            tar = 'internal',
-            extras = '--no-same-permissions'
+            tar = "internal",
+            extras = "--no-same-permissions"
           )
         }
         invisible(NULL)
       }
       
-      install_runiverse(packages='basetheme',pkg_ver='0.1.2',author='karoliskoncevicius')
+      install_runiverse(packages="basetheme",pkg_ver="0.1.2",author="karoliskoncevicius")
+    
     
       library(basetheme)
       # example from basetheme
       # Set theme by list
-      theme <- basetheme('clean')
-      theme$rect.col <- 'grey90'
+      theme <- basetheme("clean")
+      theme$rect.col <- "grey90"
       basetheme(theme)
       pairs(iris[,1:4], col=iris$Species)
     `)
