@@ -83,8 +83,9 @@ const webR = new WebR({
           # }
       
           ver <- as.character(getRversion())
-          # need four backslashes in JS template for webR
-          ver <- gsub('\\.[^.]+$', '', ver)
+          # use strsplit instead of gsub since backslash and quotes get messed up in template strings by Webpack
+          ver_split <- strsplit(ver,'.',fixed=TRUE)
+          ver <- sprintf('%s.%s',ver_split[[1]][1], ver_split[[1]][2])
           
           bin_suffix <- sprintf('bin/macosx/contrib/%s',ver)
           
