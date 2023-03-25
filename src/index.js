@@ -56,6 +56,7 @@ const webR = new WebR({
         # only works for r-universe
       
         for (pkg in packages) {
+          # once I figure out quotes in JS template literals with Webpack convert to use getRversion()
           ver <- "4.1"
           bin_suffix <- sprintf("bin/macosx/contrib/%s",ver)
           
@@ -78,8 +79,8 @@ const webR = new WebR({
       }
       
       install_runiverse(packages="basetheme",pkg_ver="0.1.2",author="karoliskoncevicius")
-    
-    
+      library(svglite)
+      s <- svglite::svgstring(standalone = FALSE)    
       library(basetheme)
       # example from basetheme
       # Set theme by list
