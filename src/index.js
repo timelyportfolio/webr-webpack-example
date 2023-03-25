@@ -83,33 +83,37 @@ const webR = new WebR({
           # }
       
           ver <- as.character(getRversion())
+          # need four backslashes in JS template for webR
           ver <- gsub('\\\\.[^.]+$', '', ver)
-
-          bin_suffix <- sprintf("bin/macosx/contrib/%s",ver)
+          
+          bin_suffix <- sprintf('bin/macosx/contrib/%s',ver)
+          
           # https://karoliskoncevicius.r-universe.dev/bin/macosx/contrib/4.1/basetheme_0.1.2.tgz
-          repo = sprintf("https://%s.r-universe.dev", author)
+          repo = sprintf('https://%s.r-universe.dev', author)
+          
           # repo <- info[pkg, "Repository"]
           # repo <- sub("src/contrib", bin_suffix, repo, fixed = TRUE)
           # repo <- sub("file:", "", repo, fixed = TRUE)
       
           #pkg_ver <- info[pkg, "Version"]
-          path <- file.path(repo, bin_suffix, paste0(pkg, "_", pkg_ver, ".tgz"))
+          path <- file.path(repo, bin_suffix, paste0(pkg, '_', pkg_ver, '.tgz'))
       
           tmp <- tempfile()
-          message(paste("Downloading webR package:", pkg))
+          message(paste('Downloading webR package:', pkg))
           utils::download.file(path, tmp, quiet = TRUE)
       
           utils::untar(
             tmp,
             exdir = lib,
-            tar = "internal",
-            extras = "--no-same-permissions"
+            tar = 'internal',
+            extras = '--no-same-permissions'
           )
         }
         invisible(NULL)
       }
       
-      install_runiverse(packages="basetheme",pkg_ver="0.1.2",author="karoliskoncevicius")
+      install_runiverse(packages='basetheme',pkg_ver='0.1.2',author='karoliskoncevicius')
+    
       library(basetheme)
       # example from basetheme
       # Set theme by list
