@@ -56,8 +56,10 @@ const webR = new WebR({
         # only works for r-universe
       
         for (pkg in packages) {
-          # once I figure out quotes in JS template literals with Webpack convert to use getRversion()
-          ver <- "4.1"
+          # ugly with strsplit instead of gsub but I gave up on more elegant solution
+          ver <- as.character(getRversion())
+          ver_split <- strsplit(ver, ".", fixed = TRUE)
+          ver <- sprintf("%s.%s", ver_split[[1]][1], ver_split[[1]][2])
           bin_suffix <- sprintf("bin/macosx/contrib/%s",ver)
           
           repo = sprintf("https://%s.r-universe.dev", author)
