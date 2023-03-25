@@ -90,7 +90,7 @@ const webR = new WebR({
       pairs(iris[,1:4], col=iris$Species)
       s()
     `)
-    document.getElementById('plotcontainer-basetheme').innerHTML = svg;
+    document.getElementById('plotcontainer-basetheme').innerHTML = svg2;
     // resize the svg the old manual way
     document.querySelector('#plotcontainer-basetheme svg').setAttribute('width','100%');
     document.querySelector('#plotcontainer-basetheme svg').setAttribute('height', '100%');
