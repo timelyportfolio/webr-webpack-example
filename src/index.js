@@ -55,9 +55,9 @@ const webR = new WebR({
         }
         # only works for r-universe
         # if (is.null(repos)) {
-        #   repos <- getOption("webr_pkg_repos")
+        #   repos <- getOption('webr_pkg_repos')
         # }
-        # #info <- utils::available.packages(repos = repos, type = "source")
+        # #info <- utils::available.packages(repos = repos, type = 'source')
         # # try to get info from r-universe api
         # info <- sprintf('https://%s.r-universe.dev/%s/json', author, package)
         # do not handle dependencies for now
@@ -78,7 +78,7 @@ const webR = new WebR({
           # }
           # 
           # if (!pkg %in% info) {
-          #   warning(cat("Requested package", pkg, "not found in webR binary repo.\n"))
+          #   warning(cat('Requested package', pkg, 'not found in webR binary repo.\n'))
           #   next
           # }
       
@@ -91,11 +91,11 @@ const webR = new WebR({
           # https://karoliskoncevicius.r-universe.dev/bin/macosx/contrib/4.1/basetheme_0.1.2.tgz
           repo = sprintf('https://%s.r-universe.dev', author)
           
-          # repo <- info[pkg, "Repository"]
-          # repo <- sub("src/contrib", bin_suffix, repo, fixed = TRUE)
-          # repo <- sub("file:", "", repo, fixed = TRUE)
+          # repo <- info[pkg, 'Repository']
+          # repo <- sub('src/contrib', bin_suffix, repo, fixed = TRUE)
+          # repo <- sub('file:', '', repo, fixed = TRUE)
       
-          #pkg_ver <- info[pkg, "Version"]
+          #pkg_ver <- info[pkg, 'Version']
           path <- file.path(repo, bin_suffix, paste0(pkg, '_', pkg_ver, '.tgz'))
       
           tmp <- tempfile()
