@@ -83,7 +83,7 @@ const webR = new WebR({
           # }
       
           ver <- as.character(getRversion())
-          ver <- gsub("\\\\.[^.]+$", "", ver)
+          ver <- gsub("\\\\\\.[^.]+$", "", ver)
           # bin_suffix <- sprintf("bin/emscripten/contrib/%s", ver)
           bin_suffix <- sprintf(
             "bin/macosx/contrib/%s",
