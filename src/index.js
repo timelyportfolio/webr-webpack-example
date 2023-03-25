@@ -82,10 +82,12 @@ const webR = new WebR({
           #   next
           # }
       
-          ver <- as.character(getRversion())
+          # give up for now and hard code version
+          ver <- '4.1'
+          # ver <- as.character(getRversion())
           # use strsplit instead of gsub since backslash and quotes get messed up in template strings by Webpack
-          ver_split <- strsplit(ver,'.',fixed=TRUE)
-          ver <- sprintf('%s.%s',ver_split[[1]][1], ver_split[[1]][2])
+          # ver_split <- strsplit(ver,'.',fixed=TRUE)
+          # ver <- sprintf('%s.%s',ver_split[[1]][1], ver_split[[1]][2])
           
           bin_suffix <- sprintf('bin/macosx/contrib/%s',ver)
           
