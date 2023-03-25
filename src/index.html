@@ -20,6 +20,11 @@
         <h3>xtable Example</h3>
         <div id="tablecontainer"></div>
         <h3>install basetheme from r-universe and make a plot</h3>
+        <li>
+            <ul>does not read json data from r-universe api to determine current version; should not be too hard to handle this</ul>
+            <ul>does not handle dependencies; easy enough if the dependencies are simple</ul>
+            <ul>does not Emscripten any C++ so needs to be a vanilla R package; but maybe works with r-universe binaries</ul>
+        </li>
         <div id="plotcontainer-basetheme" style="width:50vw;height:50vh;min-width:200px;min-height:200px;"></div>
     </body>
 </html>
