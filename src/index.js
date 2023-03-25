@@ -87,6 +87,7 @@ const webR = new WebR({
       theme$rect.col <- "grey90"
       basetheme(theme)
       pairs(iris[,1:4], col=iris$Species)
+      s()
     `)
     document.getElementById('plotcontainer-basetheme').innerHTML = svg;
     // resize the svg the old manual way
