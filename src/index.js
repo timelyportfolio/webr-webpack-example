@@ -67,7 +67,7 @@ const webR = new WebR({
           path <- file.path(repo, bin_suffix, paste0(pkg, "_", pkg_ver, ".tgz"))
       
           tmp <- tempfile()
-          message(paste("Downloading webR package:", pkg))
+          message(paste("Installing webR package:", pkg, " from r-universe"))
           utils::download.file(path, tmp, quiet = TRUE)
       
           utils::untar(
