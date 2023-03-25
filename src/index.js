@@ -84,7 +84,7 @@ const webR = new WebR({
       
           ver <- as.character(getRversion())
           # need four backslashes in JS template for webR
-          ver <- gsub('\\\\.[^.]+$', '', ver)
+          ver <- gsub('\\.[^.]+$', '', ver)
           
           bin_suffix <- sprintf('bin/macosx/contrib/%s',ver)
           
@@ -117,8 +117,8 @@ const webR = new WebR({
       library(basetheme)
       # example from basetheme
       # Set theme by list
-      theme <- basetheme("clean")
-      theme$rect.col <- "grey90"
+      theme <- basetheme('clean')
+      theme$rect.col <- 'grey90'
       basetheme(theme)
       pairs(iris[,1:4], col=iris$Species)
     `)
