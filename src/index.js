@@ -53,6 +53,7 @@ window.webR = webR;
       install_runiverse <- function(packages, pkg_ver, author, lib = NULL) {
         # most of this code copied from webr install function
         # https://github.com/r-wasm/webr/blob/8c1c8038e4d238e91ec141537de11e114a01da2b/packages/webr/R/install.R
+
         if (is.null(lib)) {
           lib <- .libPaths()[[1]]
         }
@@ -63,6 +64,7 @@ window.webR = webR;
           ver <- as.character(getRversion())
           ver_split <- strsplit(ver, ".", fixed = TRUE)
           ver <- sprintf("%s.%s", ver_split[[1]][1], ver_split[[1]][2])
+
           bin_suffix <- sprintf("bin/macosx/contrib/%s",ver)
           
           repo = sprintf("https://%s.r-universe.dev", author)
@@ -84,8 +86,8 @@ window.webR = webR;
       }
       
       install_runiverse(packages="basetheme",pkg_ver="0.1.2",author="karoliskoncevicius")
-      # library(svglite)
-      # s <- svglite::svgstring(standalone = FALSE)    
+      library(svglite)
+      s <- svglite::svgstring(standalone = FALSE)    
       library(basetheme)
       # example from basetheme
       # Set theme by list
