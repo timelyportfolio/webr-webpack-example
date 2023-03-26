@@ -50,7 +50,41 @@ window.webR = webR;
     // now for the highly experimental and probably problematic stuff
     //  try to install package from r-universe.dev
     const svg2 = await webR.evalRString(`
-      install_runiverse <- function(packages, pkg_ver, author, lib = NULL) {
+      query_runiverse <- function(package, rver = "4.1") {
+        # to leverage r-universe we will need jsonlite
+        #   but of course this comes at a cost to speed
+        #   do not use httr to avoid another dependency
+        webr::install("jsonlite")
+        library(jsonlite)
+
+        # find package
+        pkg_summary <- jsonlite::fromJSON(paste0("https://r-universe.dev/stats/powersearch?limit=1&all=true&q=",package), simplifyVector = FALSE)[[1]]
+        author <- pkg_summary[[1]]$maintainer$login
+        package <- pkg_summary[[1]]$Package
+
+        # get package details
+        pkg_details <- jsonlite::fromJSON(
+          paste0(
+            "https://",
+            author,
+            ".r-universe.dev/",
+            package,
+            "/json"
+          ),
+          simplifyVector = FALSE
+        )
+
+        # mac binary information
+        mac_binary <- Filter(function(binary){grepl(x=binary$r,pattern=paste0("^",rver)) && binary$os == "mac"},pkg_details$binaries)
+
+        list(
+          author = author,
+          version = mac_binary$version,
+          needs_compilation = pkg_details$NeedsCompilation
+        )
+      }
+
+      install_runiverse <- function(packages, lib = NULL) {
         # most of this code copied from webr install function
         # https://github.com/r-wasm/webr/blob/8c1c8038e4d238e91ec141537de11e114a01da2b/packages/webr/R/install.R
 
@@ -64,6 +98,10 @@ window.webR = webR;
           ver <- as.character(getRversion())
           ver_split <- strsplit(ver, ".", fixed = TRUE)
           ver <- sprintf("%s.%s", ver_split[[1]][1], ver_split[[1]][2])
+
+          pkg_info <- query_runiverse(pkg, ver)
+          author <- pkg_info$author
+          pkg_ver <- pkg_info$version
 
           bin_suffix <- sprintf("bin/macosx/contrib/%s",ver)
           
