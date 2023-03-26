@@ -75,7 +75,7 @@ window.webR = webR;
         )
 
         # mac binary information
-        mac_binary <- Filter(function(binary){grepl(x=binary$r,pattern=paste0("^",rver)) && binary$os == "mac"},pkg_details$binaries)
+        mac_binary <- Filter(function(binary){grepl(x=binary$r,pattern=paste0("^",rver)) && binary$os == "mac"},pkg_details$binaries)[[1]]
 
         list(
           author = author,
@@ -99,7 +99,7 @@ window.webR = webR;
           ver_split <- strsplit(ver, ".", fixed = TRUE)
           ver <- sprintf("%s.%s", ver_split[[1]][1], ver_split[[1]][2])
 
-          pkg_info <- query_runiverse(pkg, ver)
+          pkg_info <- query_runiverse(package = pkg, rver = ver)
           author <- pkg_info$author
           pkg_ver <- pkg_info$version
 
@@ -123,7 +123,7 @@ window.webR = webR;
         invisible(NULL)
       }
       
-      install_runiverse(packages="basetheme",pkg_ver="0.1.2",author="karoliskoncevicius")
+      install_runiverse(packages="basetheme")
       library(svglite)
       s <- svglite::svgstring(standalone = FALSE)    
       library(basetheme)
