@@ -12,12 +12,17 @@
   "license": "ISC",
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "monaco-editor-webpack-plugin": "^7.0.1",
     "serve": "^14.2.0",
+    "style-loader": "^3.3.2",
     "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "@r-wasm/webr": "^0.1.1"
+    "@r-wasm/webr": "^0.1.1",
+    "monaco-editor": "^0.36.1"
   }
 }

@@ -1,6 +1,7 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -11,6 +12,18 @@ module.exports = {
     path: __dirname + '/dist',
   },
   mode: "production",
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
+			},
+			{
+				test: /\.ttf$/,
+				use: ['file-loader']
+			}
+		]
+	},
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -32,6 +45,9 @@ module.exports = {
             from: "*.so",
           },
         ]
-    })
+    }),
+		new MonacoWebpackPlugin({
+			languages: ['r']
+		})
 ]
 };
