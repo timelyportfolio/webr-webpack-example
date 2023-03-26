@@ -102,6 +102,7 @@ window.webR = webR;
           pkg_info <- query_runiverse(package = pkg, rver = ver)
           author <- pkg_info$author
           pkg_ver <- pkg_info$version
+          # should probably add a fail point here if needs_compilation != no
 
           bin_suffix <- sprintf("bin/macosx/contrib/%s",ver)
           
