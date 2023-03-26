@@ -15,6 +15,9 @@ const webR = new WebR({
     repoUrl: 'https://repo.r-wasm.org/'
 });
 
+// make webR available in window/global
+window.webR = webR;
+
 (async () => {
   await webR.init();
   document.getElementById('load').innerText = 'webR has loaded!';
@@ -81,8 +84,8 @@ const webR = new WebR({
       }
       
       install_runiverse(packages="basetheme",pkg_ver="0.1.2",author="karoliskoncevicius")
-      library(svglite)
-      s <- svglite::svgstring(standalone = FALSE)    
+      # library(svglite)
+      # s <- svglite::svgstring(standalone = FALSE)    
       library(basetheme)
       # example from basetheme
       # Set theme by list
