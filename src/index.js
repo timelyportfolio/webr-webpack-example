@@ -189,7 +189,7 @@ const webR2 = new WebR({
   await webR2.init();
 
   try {
-    await webR2.installPackages(['rlang','writexl','zoo','xts']);
+    await webR2.installPackages(['rlang','writexl','lattice','zoo','xts']);
     const rlang_test = await webR2.evalRString(`
       library(rlang)
       library(writexl)

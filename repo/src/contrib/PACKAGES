@@ -5,6 +5,17 @@ License: GPL-2 | GPL-3
 MD5sum: fa5128b436b67051b231e0a8281f36a4
 NeedsCompilation: no
 
+Package: lattice
+Version: 0.21-8
+Priority: recommended
+Depends: R (>= 4.0.0)
+Imports: grid, grDevices, graphics, stats, utils
+Suggests: KernSmooth, MASS, latticeExtra, colorspace
+Enhances: chron
+License: GPL (>= 2)
+MD5sum: d9bc82810e0daa36984e695cb3970d92
+NeedsCompilation: yes
+
 Package: rlang
 Version: 1.1.0
 Depends: R (>= 3.5.0)
