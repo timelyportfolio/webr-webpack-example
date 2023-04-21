@@ -2,7 +2,7 @@ Package: Formula
 Version: 1.2-5
 Depends: R (>= 2.0.0), stats
 License: GPL-2 | GPL-3
-MD5sum: 68b972d3ccad072630a4d6ee6c96e0fd
+MD5sum: 4e25f976775f552777ce113c162da14f
 
 Package: rlang
 Version: 1.1.0
@@ -13,4 +13,10 @@ Suggests: cli (>= 3.1.0), covr, crayon, fs, glue, knitr, magrittr,
         usethis, vctrs (>= 0.2.3), withr
 Enhances: winch
 License: MIT + file LICENSE
-MD5sum: 25107058753fc8f2e13c3df3d42f8ce3
+MD5sum: cb0425a88e41eb1c1382a4564ef81d3d
+
+Package: writexl
+Version: 1.4.2
+Suggests: spelling, readxl, nycflights13, testthat, bit64
+License: BSD_2_clause + file LICENSE
+MD5sum: a62f19936cf53533e2223fef856a5db3

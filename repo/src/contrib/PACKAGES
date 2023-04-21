@@ -16,3 +16,10 @@ Enhances: winch
 License: MIT + file LICENSE
 MD5sum: 58861e9d99517eb10f7683249efae513
 NeedsCompilation: yes
+
+Package: writexl
+Version: 1.4.2
+Suggests: spelling, readxl, nycflights13, testthat, bit64
+License: BSD_2_clause + file LICENSE
+MD5sum: a3aa61175d96072a56932d739d66735f
+NeedsCompilation: yes
