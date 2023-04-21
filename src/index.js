@@ -190,7 +190,7 @@ const webR2 = new WebR({
 
   try {
     await webR2.installPackages(['rlang']);
-    const rlang_ver = await webR.evalRString(`packageVersion("rlang")`)
+    const rlang_ver = await webR2.evalRString(`packageVersion("rlang")`)
     console.log(rlang_ver)
   } catch(e) {console.log(e)}
 })()
