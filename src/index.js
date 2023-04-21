@@ -190,7 +190,12 @@ const webR2 = new WebR({
 
   try {
     await webR2.installPackages(['rlang']);
-    const rlang_ver = await webR2.evalRString(`packageVersion("rlang")`)
-    console.log(rlang_ver)
+    const rlang_test = await webR2.evalRString(`
+      # example from rlang to see if working
+      library(rlang)
+      fn <- function(x=c("foo","bar")) arg_match(x)
+      fn("bar")
+    `)
+    console.log(rlang_test)
   } catch(e) {console.log(e)}
 })()
