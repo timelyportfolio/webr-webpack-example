@@ -189,10 +189,11 @@ const webR2 = new WebR({
   await webR2.init();
 
   try {
-    await webR2.installPackages(['rlang']);
+    await webR2.installPackages(['rlang','writexl']);
     const rlang_test = await webR2.evalRString(`
       # example from rlang to see if working
       library(rlang)
+      library(writexl)
       fn <- function(x=c("foo","bar")) arg_match(x)
       fn("bar")
     `)
