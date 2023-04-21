@@ -177,3 +177,20 @@ window.webR = webR;
     webR.destroy(val);
   }
 })();
+
+//  try to install packages from our experimental repo build
+const webR2 = new WebR({
+  baseUrl: './',
+  serviceWorkerUrl: './',
+  repoUrl: './repo/'
+});
+
+(async () => {
+  await webR2.init();
+
+  try {
+    await webR2.installPackages(['rlang']);
+    const rlang_ver = await webR.evalRString(`packageVersion("rlang")`)
+    console.log(rlang_ver)
+  } catch(e) {console.log(e)}
+})()

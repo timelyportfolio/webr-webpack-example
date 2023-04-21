@@ -44,6 +44,10 @@ module.exports = {
             context: "node_modules/@r-wasm/webr/dist",
             from: "*.so",
           },
+          {
+            from: "repo",
+            to: "repo"
+          }
         ]
     }),
 		new MonacoWebpackPlugin({
