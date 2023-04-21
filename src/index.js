@@ -189,11 +189,15 @@ const webR2 = new WebR({
   await webR2.init();
 
   try {
-    await webR2.installPackages(['rlang','writexl']);
+    await webR2.installPackages(['rlang','writexl','zoo','xts']);
     const rlang_test = await webR2.evalRString(`
-      # example from rlang to see if working
       library(rlang)
       library(writexl)
+      library(zoo)
+      library(xts)
+      # function to see if xts is working
+      timeBasedSeq('1999/2008')
+      # function to see if rlang is working
       fn <- function(x=c("foo","bar")) arg_match(x)
       fn("bar")
     `)
