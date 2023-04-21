@@ -23,3 +23,23 @@ Suggests: spelling, readxl, nycflights13, testthat, bit64
 License: BSD_2_clause + file LICENSE
 MD5sum: a3aa61175d96072a56932d739d66735f
 NeedsCompilation: yes
+
+Package: xts
+Version: 0.13.1
+Depends: R (>= 3.6.0), zoo (>= 1.7-12)
+Imports: methods
+LinkingTo: zoo
+Suggests: timeSeries, timeDate, tseries, chron, tinytest
+License: GPL (>= 2)
+MD5sum: e4ccde2aa6cc7ac68a0cfcd08a5882da
+NeedsCompilation: yes
+
+Package: zoo
+Version: 1.8-12
+Depends: R (>= 3.1.0), stats
+Imports: utils, graphics, grDevices, lattice (>= 0.20-27)
+Suggests: AER, coda, chron, ggplot2 (>= 3.0.0), mondate, scales,
+        stinepack, strucchange, timeDate, timeSeries, tis, tseries, xts
+License: GPL-2 | GPL-3
+MD5sum: 9bf826a22610f5a3f8ebd063404e7183
+NeedsCompilation: yes

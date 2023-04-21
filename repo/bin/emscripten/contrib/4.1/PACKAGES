@@ -2,7 +2,7 @@ Package: Formula
 Version: 1.2-5
 Depends: R (>= 2.0.0), stats
 License: GPL-2 | GPL-3
-MD5sum: 4e25f976775f552777ce113c162da14f
+MD5sum: 13d9564347d23ebefb6453ef258b86dd
 
 Package: rlang
 Version: 1.1.0
@@ -13,10 +13,28 @@ Suggests: cli (>= 3.1.0), covr, crayon, fs, glue, knitr, magrittr,
         usethis, vctrs (>= 0.2.3), withr
 Enhances: winch
 License: MIT + file LICENSE
-MD5sum: cb0425a88e41eb1c1382a4564ef81d3d
+MD5sum: 0ac6f29a3925fe5681e49f371d2ab649
 
 Package: writexl
 Version: 1.4.2
 Suggests: spelling, readxl, nycflights13, testthat, bit64
 License: BSD_2_clause + file LICENSE
-MD5sum: a62f19936cf53533e2223fef856a5db3
+MD5sum: 2cbc602bb7b231cb3b4aa4f36e28654b
+
+Package: xts
+Version: 0.13.1
+Depends: R (>= 3.6.0), zoo (>= 1.7-12)
+Imports: methods
+LinkingTo: zoo
+Suggests: timeSeries, timeDate, tseries, chron, tinytest
+License: GPL (>= 2)
+MD5sum: 1edc63a3400f97fdca1a5de4f4cb5eac
+
+Package: zoo
+Version: 1.8-12
+Depends: R (>= 3.1.0), stats
+Imports: utils, graphics, grDevices, lattice (>= 0.20-27)
+Suggests: AER, coda, chron, ggplot2 (>= 3.0.0), mondate, scales,
+        stinepack, strucchange, timeDate, timeSeries, tis, tseries, xts
+License: GPL-2 | GPL-3
+MD5sum: 9bfb22ca07d130fc4be5dd9ff14de307
